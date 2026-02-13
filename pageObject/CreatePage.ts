@@ -28,6 +28,7 @@ export class CreatePage {
 
     async visitPage(){
         await this.page.goto('https://app.playonereal.com/agent-signup');
+        await expect(this.page).toHaveURL("**/agent-signup");
         await this.page.waitForLoadState('networkidle');
     }
 
@@ -38,8 +39,8 @@ export class CreatePage {
         await this.email.fill("iamshashidhar.b@gmail.com");
         await this.password.fill("Shashi@12345");
         await this.passwordconfirm.fill("Shashi@12345");
-        await this.agreeCheck1.click();
-        await this.agreeCheck2.click();
+        await this.agreeCheck1.check();
+        await this.agreeCheck2.check();
         await this.createAccount.click();
     }
 
